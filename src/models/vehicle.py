@@ -30,7 +30,7 @@ class Vehicle(ABC):
 
     @property
     def battery_percentage(self):
-        return self.battery_percentage
+        return self.__battery_percentage
 
     @battery_percentage.setter
     def battery_percentage(self, battery_percentage):
