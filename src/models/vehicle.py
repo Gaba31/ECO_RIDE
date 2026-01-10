@@ -39,5 +39,7 @@ class Vehicle(ABC):
         else:
             raise ValueError("Battery Percentage must be between 0 and 100")
 
-
+    @abstractmethod
+    def calculate_trip_cost(self,usage):
+        pass
 
