@@ -84,3 +84,12 @@ class HubManager:
                 status_count[vehicle.maintenance_status] += 1
 
         return status_count
+
+    def get_sorted_vehicles_by_model(self, hub_name):
+        hub = self.get_hub(hub_name)
+
+        if hub is None:
+            print("Hub not found")
+            return []
+
+        return sorted(hub.vehicle_list, key=lambda v: v.model.lower())

@@ -112,6 +112,7 @@ class EcoRideMain:
             print("\t 5. Search vehicle by battery percentage")
             print("\t 6. Categorize vehicle")
             print("\t 7. Vehicle by status category")
+            print("\t 8. Sort vehicles in hub by model name")
             print("\t 0. Exit")
             choice = input()
 
@@ -144,7 +145,16 @@ class EcoRideMain:
                 print(f"Vehicles On Trip          : {status_count.get('On Trip', 0)}")
                 print(f"Under Maintenance Vehicles: {status_count.get('Under Maintenance', 0)}")
 
-
+            elif choice == "8":
+                hub_name = input("Enter hub name:\n")
+                sorted_vehicles = hub_manager.get_sorted_vehicles_by_model(hub_name)
+                if not sorted_vehicles:
+                    print("No vehicles to display")
+                else:
+                    print(f"\nVehicles in '{hub_name}' sorted by model")
+                    print("=" * 40)
+                    for v in sorted_vehicles:
+                        print(v)
 
 
 if __name__ == "__main__":
