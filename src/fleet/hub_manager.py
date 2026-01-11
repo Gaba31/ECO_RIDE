@@ -75,3 +75,12 @@ class HubManager:
                     category_dict["Electric Scooter"].append(v)
 
         return dict(category_dict)
+
+    def vehicle_count_by_status(self):
+        status_count = defaultdict(int)
+
+        for hub in self.hubs.values():
+            for vehicle in hub.vehicle_list:
+                status_count[vehicle.maintenance_status] += 1
+
+        return status_count

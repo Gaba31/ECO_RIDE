@@ -26,7 +26,9 @@ class EcoRideMain:
             model = input("Enter model:\n")
             battery_percentage = int(input("Enter battery percentage:\n"))
             seating_capacity = input("Enter seating capacity:\n")
+            m_status = EcoRideMain.add_maintenance_status()
             ecar_obj = ElectricCar(vehicle_id,model,battery_percentage,seating_capacity)
+            ecar_obj.maintenance_status = m_status
 
             hub_name = input("Enter hub Name for the Vehicle:\n")
 
@@ -47,7 +49,9 @@ class EcoRideMain:
             model = input("Enter model:\n")
             battery_percentage = int(input("Enter battery percentage:\n"))
             max_speed_limit = input("Enter max_speed_limit:\n")
+            m_status = EcoRideMain.add_maintenance_status()
             escooter_obj = ElectricScooter(vehicle_id,model,battery_percentage,max_speed_limit)
+            escooter_obj.maintenance_status = m_status
 
             hub_name = input("Enter hub Name for the Vehicle:\n")
 
@@ -61,6 +65,26 @@ class EcoRideMain:
                 hub_obj.add_vehicle(escooter_obj)
                 #print(type(hub_obj))
                 hub_manager.update_hub(hub_obj)
+
+    @staticmethod
+    def add_maintenance_status():
+        print("Select Vehicle Status")
+        print("-" * 40)
+        print("\t 1. Available")
+        print("\t 2. On Trip")
+        print("\t 3. Under Maintenance")
+
+        choice = input("Enter choice: ")
+
+        if choice == "1":
+            return "Available"
+        elif choice == "2":
+            return "On Trip"
+        elif choice == "3":
+            return "Under Maintenance"
+        else:
+            print("Invalid choice, defaulting to Available")
+            return "Available"
 
     @staticmethod
     def categorized_view(hub_manager):
@@ -87,6 +111,7 @@ class EcoRideMain:
             print("\t 4. Search vehicle by hub")
             print("\t 5. Search vehicle by battery percentage")
             print("\t 6. Categorize vehicle")
+            print("\t 7. Vehicle by status category")
             print("\t 0. Exit")
             choice = input()
 
@@ -109,7 +134,15 @@ class EcoRideMain:
                 hub_manager.search_vehicle_by_battery_percentage(battery_percentage)
             elif choice == "6":
                 EcoRideMain.categorized_view(hub_manager)
+            elif choice == "7":
+                status_count = hub_manager.vehicle_count_by_status()
 
+                print("\nFleet Analytics Summary")
+                print("=" * 40)
+
+                print(f"Available Vehicles        : {status_count.get('Available', 0)}")
+                print(f"Vehicles On Trip          : {status_count.get('On Trip', 0)}")
+                print(f"Under Maintenance Vehicles: {status_count.get('Under Maintenance', 0)}")
 
 
 
