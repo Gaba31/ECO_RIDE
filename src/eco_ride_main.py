@@ -62,7 +62,18 @@ class EcoRideMain:
                 #print(type(hub_obj))
                 hub_manager.update_hub(hub_obj)
 
+    @staticmethod
+    def categorized_view(hub_manager):
+        categorized = hub_manager.vehicle_category()
 
+        if not categorized:
+            print("No vehicle available")
+        else:
+            for v_type , vehicles in categorized.items():
+                print(f"\n{v_type} Vehicles")
+                print("=" * 40)
+                for v in vehicles:
+                    print(v)
 
     @staticmethod
     def console_logic(hub_manager):
@@ -75,6 +86,7 @@ class EcoRideMain:
             print("\t 3. Add vehicle")
             print("\t 4. Search vehicle by hub")
             print("\t 5. Search vehicle by battery percentage")
+            print("\t 6. Categorize vehicle")
             print("\t 0. Exit")
             choice = input()
 
@@ -95,7 +107,8 @@ class EcoRideMain:
             elif choice == "5":
                 battery_percentage = int(input("Enter battery percentage:\n"))
                 hub_manager.search_vehicle_by_battery_percentage(battery_percentage)
-
+            elif choice == "6":
+                EcoRideMain.categorized_view(hub_manager)
 
 
 

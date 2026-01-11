@@ -1,3 +1,10 @@
+from collections import defaultdict
+
+from src.models.electric_car import ElectricCar
+from src.models.electric_scooter import ElectricScooter
+from src.models.vehicle import Vehicle
+
+
 class HubManager:
     def __init__(self):
         self.hubs = {}
@@ -54,3 +61,17 @@ class HubManager:
 
         if found == False:
             print("No vehicles found with battery above threshold")
+
+
+    def vehicle_category(self):
+
+        category_dict = defaultdict(list)
+        for hub_obj in self.hubs.values():
+            for v in hub_obj.vehicle_list:
+                if isinstance(v, ElectricCar):
+                    category_dict["Electric Car"].append(v)
+
+                elif isinstance(v, ElectricScooter):
+                    category_dict["Electric Scooter"].append(v)
+
+        return dict(category_dict)
