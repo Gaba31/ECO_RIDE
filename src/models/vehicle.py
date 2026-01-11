@@ -43,3 +43,7 @@ class Vehicle(ABC):
     def calculate_trip_cost(self,usage):
         pass
 
+    def __eq__(self, other):
+        if isinstance(other, Vehicle):
+            return self.vehicle_id == other.vehicle_id
+        return False
