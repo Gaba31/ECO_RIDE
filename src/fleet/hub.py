@@ -1,6 +1,6 @@
 class Hub:
     def __init__(self,hub_name):
-        self.__hub_name = hub_name
+        self.hub_name = hub_name
         self.vehicle_list = []
 
     def add_vehicle(self,vehicle):
