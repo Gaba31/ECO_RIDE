@@ -38,3 +38,19 @@ class HubManager:
         print(f"Vehicles in hub {hub_name}:")
         for vehicle in hub_obj.vehicle_list:
             print(vehicle)
+
+    def search_vehicle_by_battery_percentage(self,given_battery_percentage=80):
+        print(f"Vehicles with battery > {given_battery_percentage}%:")
+
+        found = False
+        for hub in self.hubs.values():
+            high_battery_vehicles = list(
+                filter(lambda v: v.battery_percentage > given_battery_percentage, hub.vehicle_list)
+            )
+
+            if high_battery_vehicles:
+                found = True
+                print(f"{hub.hub_name} : {high_battery_vehicles}")
+
+        if found == False:
+            print("No vehicles found with battery above threshold")

@@ -74,6 +74,7 @@ class EcoRideMain:
             print("\t 2. view hubs")
             print("\t 3. Add vehicle")
             print("\t 4. Search vehicle by hub")
+            print("\t 5. Search vehicle by battery percentage")
             print("\t 0. Exit")
             choice = input()
 
@@ -91,6 +92,10 @@ class EcoRideMain:
             elif choice == "4":
                 hub_name = input("Enter hub name:\n")
                 hub_manager.search_by_hub(hub_name)
+            elif choice == "5":
+                battery_percentage = int(input("Enter battery percentage:\n"))
+                hub_manager.search_vehicle_by_battery_percentage(battery_percentage)
+
 
 
 
