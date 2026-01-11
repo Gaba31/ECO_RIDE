@@ -16,8 +16,15 @@ class ElectricScooter(Vehicle):
         return ElectricScooter.BASE_FARE + (ElectricScooter.COST_PER_MINUTE * minutes)
 
     def __str__(self):
-        return f"{self.__class__.__name__} :"+f"( id:{self.vehicle_id} " + f" model:{self.model} " + f" battery_percentage:{self.battery_percentage} )"
-
+        return (
+            f"{self.__class__.__name__} | "
+            f"ID: {self.vehicle_id} | "
+            f"Model: {self.model} | "
+            f"Battery: {self.battery_percentage}% | "
+            f"Max Speed: {self.max_speed_limit} | "
+            f"Status: {self.maintenance_status} | "
+            f"Fare: {self.rental_price}"
+        )
     def __repr__(self):
         return self.__str__()
 

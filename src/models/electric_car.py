@@ -16,8 +16,15 @@ class ElectricCar(Vehicle):
         return ElectricCar.BASE_FARE + (ElectricCar.COST_PER_KM * distance)
 
     def __str__(self):
-
-        return f"{self.__class__.__name__} :"+f"( id:{self.vehicle_id} " + f" model:{self.model} " + f" battery_percentage:{self.battery_percentage} )"
+        return (
+            f"{self.__class__.__name__} | "
+            f"ID: {self.vehicle_id} | "
+            f"Model: {self.model} | "
+            f"Battery: {self.battery_percentage}% | "
+            f"Seats: {self.seating_capacity} | "
+            f"Status: {self.maintenance_status} | "
+            f"Fare: {self.rental_price}"
+        )
 
     def __repr__(self):
         return self.__str__()

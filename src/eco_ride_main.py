@@ -27,8 +27,10 @@ class EcoRideMain:
             battery_percentage = int(input("Enter battery percentage:\n"))
             seating_capacity = input("Enter seating capacity:\n")
             m_status = EcoRideMain.add_maintenance_status()
+            rental_price = float(input("Enter rental price per trip:\n"))
             ecar_obj = ElectricCar(vehicle_id,model,battery_percentage,seating_capacity)
             ecar_obj.maintenance_status = m_status
+            ecar_obj.rental_price = rental_price
 
             hub_name = input("Enter hub Name for the Vehicle:\n")
 
@@ -50,8 +52,10 @@ class EcoRideMain:
             battery_percentage = int(input("Enter battery percentage:\n"))
             max_speed_limit = input("Enter max_speed_limit:\n")
             m_status = EcoRideMain.add_maintenance_status()
+            rental_price = float(input("Enter rental price per trip:\n"))
             escooter_obj = ElectricScooter(vehicle_id,model,battery_percentage,max_speed_limit)
             escooter_obj.maintenance_status = m_status
+            escooter_obj.rental_price = rental_price
 
             hub_name = input("Enter hub Name for the Vehicle:\n")
 
@@ -113,6 +117,7 @@ class EcoRideMain:
             print("\t 6. Categorize vehicle")
             print("\t 7. Vehicle by status category")
             print("\t 8. Sort vehicles in hub by model name")
+            print("\t 9. Advanced sort (battery / fare)")
             print("\t 0. Exit")
             choice = input()
 
@@ -152,6 +157,30 @@ class EcoRideMain:
                     print("No vehicles to display")
                 else:
                     print(f"\nVehicles in '{hub_name}' sorted by model")
+                    print("=" * 40)
+                    for v in sorted_vehicles:
+                        print(v)
+
+            elif choice == "9":
+                hub_name = input("Enter hub name:\n")
+
+                print("Sort By:")
+                print("1. Battery Level (High to Low)")
+                print("2. Fare Price (High to Low)")
+                sort_choice = input("Enter choice: ")
+
+                if sort_choice == "1":
+                    sorted_vehicles = hub_manager.sort_vehicles_adv(hub_name, "battery")
+                elif sort_choice == "2":
+                    sorted_vehicles = hub_manager.sort_vehicles_adv(hub_name, "fare")
+                else:
+                    print("Invalid choice")
+                    continue
+
+                if not sorted_vehicles:
+                    print("No vehicles to display")
+                else:
+                    print("\nSorted Vehicles")
                     print("=" * 40)
                     for v in sorted_vehicles:
                         print(v)

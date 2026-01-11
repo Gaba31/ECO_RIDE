@@ -93,3 +93,31 @@ class HubManager:
             return []
 
         return sorted(hub.vehicle_list, key=lambda v: v.model.lower())
+
+    def sort_vehicles_adv(self, hub_name, sort_by):
+        hub = self.get_hub(hub_name)
+
+        if hub is None:
+            print("Hub not found")
+            return []
+
+        if not hub.vehicle_list:
+            return []
+
+        if sort_by == "battery":
+            return sorted(
+                hub.vehicle_list,
+                key=lambda v: v.battery_percentage,
+                reverse=True
+            )
+
+        elif sort_by == "fare":
+            return sorted(
+                hub.vehicle_list,
+                key=lambda v: v.rental_price if v.rental_price is not None else 0,
+                reverse=True
+            )
+
+        else:
+            print("Invalid sorting option")
+            return []
