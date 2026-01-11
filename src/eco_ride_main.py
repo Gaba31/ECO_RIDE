@@ -73,6 +73,7 @@ class EcoRideMain:
             print("\t 1. Add hub")
             print("\t 2. view hubs")
             print("\t 3. Add vehicle")
+            print("\t 4. Search vehicle by hub")
             print("\t 0. Exit")
             choice = input()
 
@@ -87,7 +88,9 @@ class EcoRideMain:
                 hub_manager.get_all_hubs()
             elif choice == "3":
               EcoRideMain.add_vehicle_console_comp(hub_manager)
-
+            elif choice == "4":
+                hub_name = input("Enter hub name:\n")
+                hub_manager.search_by_hub(hub_name)
 
 
 
