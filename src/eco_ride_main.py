@@ -2,6 +2,8 @@ from src.fleet.hub import Hub
 from src.fleet.hub_manager import HubManager
 from src.models.electric_car import ElectricCar
 from src.models.electric_scooter import ElectricScooter
+from src.utils.csv_utils import load_vehicles_from_csv, save_vehicle_to_csv
+
 
 
 class EcoRideMain:
@@ -39,6 +41,8 @@ class EcoRideMain:
                hub_obj.add_vehicle(ecar_obj)
                #print(type(hub_obj))
                hub_manager.update_hub(hub_obj)
+               save_vehicle_to_csv(hub_name, ecar_obj)
+
             else:
                 hub_obj = Hub(hub_name)
                 hub_obj.add_vehicle(ecar_obj)
@@ -64,6 +68,8 @@ class EcoRideMain:
                 hub_obj.add_vehicle(escooter_obj)
                 #print(type(hub_obj))
                 hub_manager.update_hub(hub_obj)
+                save_vehicle_to_csv(hub_name, escooter_obj)
+
             else:
                 hub_obj =  Hub(hub_name)
                 hub_obj.add_vehicle(escooter_obj)
@@ -189,5 +195,6 @@ class EcoRideMain:
 if __name__ == "__main__":
     EcoRideMain.welcome()
     hub_manager = HubManager()
+    load_vehicles_from_csv(hub_manager)
     EcoRideMain.console_logic(hub_manager)
 
