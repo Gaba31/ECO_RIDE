@@ -1,0 +1,78 @@
+{
+    "0-10": [],
+    "10-20": [],
+    "20-30": [
+        {
+            "hub_name": "Hry",
+            "vehicle_type": "ElectricScooter",
+            "vehicle_id": "6",
+            "model": "bajaj",
+            "battery": "22",
+            "status": "Available",
+            "rental_price": "399",
+            "seating_capacity/max_speed_limit": "56"
+        }
+    ],
+    "30-40": [
+        {
+            "hub_name": "Hyd",
+            "vehicle_type": "ElectricCar",
+            "vehicle_id": "3",
+            "model": "Kia",
+            "battery": "33",
+            "status": "Under Maintenance",
+            "rental_price": "870",
+            "seating_capacity/max_speed_limit": "5"
+        }
+    ],
+    "40-50": [
+        {
+            "hub_name": "Goa",
+            "vehicle_type": "ElectricCar",
+            "vehicle_id": "9",
+            "model": "MG",
+            "battery": "45",
+            "status": "On Trip",
+            "rental_price": "999",
+            "seating_capacity/max_speed_limit": "7"
+        }
+    ],
+    "50-60": [],
+    "60-70": [
+        {
+            "hub_name": "Hyd",
+            "vehicle_type": "ElectricScooter",
+            "vehicle_id": "2",
+            "model": "Vespa",
+            "battery": "67",
+            "status": "On Trip",
+            "rental_price": "500",
+            "seating_capacity/max_speed_limit": "89"
+        }
+    ],
+    "70-80": [],
+    "80-90": [
+        {
+            "hub_name": "Goa",
+            "vehicle_type": "ElectricCar",
+            "vehicle_id": "4",
+            "model": "Maruti",
+            "battery": "88",
+            "status": "On Trip",
+            "rental_price": "456",
+            "seating_capacity/max_speed_limit": "4"
+        }
+    ],
+    "90-100": [
+        {
+            "hub_name": "Banglore",
+            "vehicle_type": "ElectricCar",
+            "vehicle_id": "1",
+            "model": "Banglore",
+            "battery": "90",
+            "status": "Available",
+            "rental_price": "900",
+            "seating_capacity/max_speed_limit": "5"
+        }
+    ]
+}
