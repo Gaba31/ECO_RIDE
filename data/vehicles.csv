@@ -1,1 +1,7 @@
-hub_name,vehicle_type,vehicle_id,model,battery,status,rental_price,seating_capacity/max_speed_limit
+hub_name,vehicle_type,vehicle_id,model,battery,status,rental_price,extra
+bang,ElectricCar,1,Hyundai,90,Available,899,5
+hry,ElectricScooter,2,Maruti,76,Under Maintenance,543,99
+bang,ElectricScooter,1,blue,99,On Trip,43,39
+goa,ElectricCar,3,kai,89,Available,64,4
+goa,ElectricCar,5,byd,42,On Trip,999,5
+punb,ElectricCar,2,kdkdk,94,Under Maintenance,899,33

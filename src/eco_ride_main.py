@@ -3,6 +3,7 @@ from src.fleet.hub_manager import HubManager
 from src.models.electric_car import ElectricCar
 from src.models.electric_scooter import ElectricScooter
 from src.utils.csv_utils import load_vehicles_from_csv, save_vehicle_to_csv
+from src.utils.json_utils import load_from_json, save_to_json
 
 
 
@@ -128,6 +129,9 @@ class EcoRideMain:
             choice = input()
 
             if choice == "0":
+                print("Saving fleet data...")
+                save_to_json(hub_manager)
+                print("Exiting system. Goodbye!")
                 flag = False
 
             elif choice == "1":
@@ -195,6 +199,7 @@ class EcoRideMain:
 if __name__ == "__main__":
     EcoRideMain.welcome()
     hub_manager = HubManager()
-    load_vehicles_from_csv(hub_manager)
+    # load_vehicles_from_csv(hub_manager)
+    load_from_json(hub_manager)
     EcoRideMain.console_logic(hub_manager)
 

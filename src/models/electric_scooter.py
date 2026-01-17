@@ -28,3 +28,7 @@ class ElectricScooter(Vehicle):
     def __repr__(self):
         return self.__str__()
 
+    def to_dict(self):
+        data = super().to_dict()
+        data["max_speed_limit"] = self.max_speed_limit
+        return data

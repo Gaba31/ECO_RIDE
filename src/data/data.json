@@ -1,0 +1,13 @@
+{
+    "goa": [
+        {
+            "type": "ElectricCar",
+            "vehicle_id": "5",
+            "model": "byd",
+            "battery_percentage": 42,
+            "maintenance_status": "On Trip",
+            "rental_price": 999,
+            "seating_capacity": "5"
+        }
+    ]
+}

@@ -1,0 +1,13 @@
+{
+    "punb": [
+        {
+            "type": "ElectricCar",
+            "vehicle_id": "2",
+            "model": "kdkdk",
+            "battery_percentage": 94,
+            "maintenance_status": "Under Maintenance",
+            "rental_price": 899,
+            "seating_capacity": "33"
+        }
+    ]
+}

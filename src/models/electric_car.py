@@ -28,3 +28,8 @@ class ElectricCar(Vehicle):
 
     def __repr__(self):
         return self.__str__()
+
+    def to_dict(self):
+        data = super().to_dict()
+        data["seating_capacity"] = self.seating_capacity
+        return data
